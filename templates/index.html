@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Status Gizi Balita</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* Font Nunito yang membulat (sama dengan halaman hasil) */
+            font-family: 'Nunito', sans-serif;
+            background-color: #FFF5F8;
+            /* Krem pink sangat lembut */
+            color: #4B5563;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .container {
+            background: #FFFFFF;
+            /* Putih bersih */
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            /* Sudut membulat */
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+            /* Soft drop shadow */
+            border: 2px solid #FFF0F4;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            color: #00A89D;
+            /* Biru Tosca */
+            font-size: 2rem;
+        }
+
+        p.subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: #6B7280;
+            /* Teks abu-abu pudar */
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: #374151;
+            /* Abu-abu gelap membaur hitam */
+            font-size: 0.95rem;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border-radius: 12px;
+            background-color: #F9FAFB;
+            /* Abu-abu sangat terang untuk input */
+            border: 2px solid #E5E7EB;
+            /* Garis tepi netral lembut */
+            color: #1F2937;
+            /* Teks dark sangat tegas */
+            font-size: 1rem;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        /* Mewarnai teks placeholder */
+        input::placeholder {
+            color: #9CA3AF;
+            font-weight: 400;
+        }
+
+        select:invalid {
+            color: #9CA3AF;
+        }
+
+        /* Saat form sedang di-klik/ketik (Focus State) */
+        input:focus,
+        select:focus {
+            outline: none;
+            background-color: #FFFFFF;
+            border-color: #00A89D;
+            /* Highlight pinggiran jadi Biru Tosca */
+            /* Pancaran cahaya kotak tosca tipis */
+            box-shadow: 0 0 0 4px rgba(0, 168, 157, 0.15);
+        }
+
+        button {
+            width: 100%;
+            padding: 1.2rem;
+            border: none;
+            border-radius: 100px;
+            /* Bentuk tombol bundar bulat seperti permen/pill */
+            background: #FF84A1;
+            /* Pink pastel manis kontras dengan judul tosca */
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 8px 15px rgba(255, 132, 161, 0.25);
+            font-family: 'Nunito', sans-serif;
+        }
+
+        button:hover {
+            background: #FF6B8F;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(255, 132, 161, 0.35);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cek Status Gizi Balita</h1>
+        <p class="subtitle">Sistem Deteksi Dini Tumbuh Kembang Anak</p>
+
+        <form action="/proses" method="POST">
+            <div class="form-group">
+                <label for="umur">Umur (Bulan)</label>
+                <input type="number" id="umur" name="umur" step="0.1" required placeholder="Cth: 24 (Hitungan bulan)">
+            </div>
+
+            <div class="form-group">
+                <label for="jk">Jenis Kelamin</label>
+                <select id="jk" name="jk" required>
+                    <!-- Default select option -->
+                    <option value="" disabled selected hidden>Pilih Jenis Kelamin Anak</option>
+                    <option value="L">Laki-laki</option>
+                    <option value="P">Perempuan</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bb">Berat Badan (kg)</label>
+                <input type="number" id="bb" name="bb" step="0.1" required placeholder="Cth: 12.5">
+            </div>
+
+            <div class="form-group">
+                <label for="tb">Tinggi Badan (cm)</label>
+                <input type="number" id="tb" name="tb" step="0.1" required placeholder="Cth: 85.0">
+            </div>
+
+            <button type="submit">Analisis Status Gizi</button>
+        </form>
+    </div>
+</body>
+
+</html>
