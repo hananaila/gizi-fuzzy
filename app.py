@@ -142,12 +142,12 @@ def inferensi_sugeno(waz_f, haz_f, whz_f):
     # === Overweight (NSS = 2.5) ===
     # R24: N H H
     rules.append((min(waz_f['N'], haz_f['H'], whz_f['H']), 2.5))
-    # R25: H N H
-    rules.append((min(waz_f['H'], haz_f['N'], whz_f['H']), 2.5))
-    # R26: H H H
+    # R25: H H H
     rules.append((min(waz_f['H'], haz_f['H'], whz_f['H']), 2.5))
-    # R27: H H H (Duplikat tipe data dari log, kita ikutkan saja)
-    rules.append((min(waz_f['H'], haz_f['H'], whz_f['H']), 2.5))
+    # R26: H H L
+    rules.append((min(waz_f['H'], haz_f['H'], whz_f['L']), 2.5))
+    # R27: L H H
+    rules.append((min(waz_f['L'], haz_f['H'], whz_f['H']), 2.5))
 
     return rules
 
